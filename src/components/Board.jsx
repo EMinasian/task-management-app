@@ -11,7 +11,7 @@ export default function Board() {
         <h2>Tasks Board</h2>
       <ol className="columns-section">
         {categorizedData.map((tasks, stage) => (
-          <Column tasks={tasks} stage={stage} />
+          <Column tasks={tasks} stage={stage} key={stage}/>
         ))}
       </ol>
     </div>

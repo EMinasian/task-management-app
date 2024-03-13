@@ -6,7 +6,7 @@ export default function Column({ tasks, stage }) {
       <h2>Stage: {stage + 1}</h2>
       <ul>
         {tasks.map((task) => (
-          <Card task={task} />
+          <Card task={task} key={task.id}/>
         ))}
       </ul>
     </div>
