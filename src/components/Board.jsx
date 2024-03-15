@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Column from "./Column";
+import TaskDisplay from "./TaskDisplay";
 import SearchBox from "./SeacrhBox";
 import SearchResults from "./SearchResults";
 import categorizeData from "../utils/categorizeData";
@@ -57,11 +57,7 @@ export default function Board() {
         {searchData.length !== 0 ? (
           <SearchResults searchedTasks={searchData} />
         ) : (
-          <ol className="flex flex-row">
-            {categorizedData.map((tasks, stage) => (
-              <Column tasks={tasks} stage={stage} key={stage} />
-            ))}
-          </ol>
+          <TaskDisplay data={categorizedData} />
         )}
       </div>
     </DataContextProvider>
