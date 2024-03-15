@@ -25,9 +25,10 @@ export default function Board() {
     }
 
     categorizedData[stage - 1].splice(locationOfTask, 1);
-    taskToChange.stage++;
-    const newStage = isUpgrade ? stage : stage - 2;
-    categorizedData[newStage].push(taskToChange);
+    taskToChange.stage = isUpgrade
+      ? taskToChange.stage + 1
+      : taskToChange.stage - 1;
+    categorizedData[isUpgrade ? stage : stage - 2].push(taskToChange);
     setData([...categorizedData]);
   }
 
