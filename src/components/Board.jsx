@@ -46,8 +46,12 @@ export default function Board() {
     setSearch(tasksToShow);
   }
 
+  function onResetSearch() {
+    setSearch([])
+  }
+
   return (
-    <DataContextProvider value={{ onStageChange, onSearch }}>
+    <DataContextProvider value={{ onStageChange, onSearch, onResetSearch }}>
       <div className="board">
         <h2>Tasks Board</h2>
         <SearchBox />
