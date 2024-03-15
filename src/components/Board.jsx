@@ -5,7 +5,6 @@ import SearchResults from "./SearchResults";
 import categorizeData from "../utils/categorizeData";
 import data from "../mocks/data";
 import { DataContextProvider } from "../contexts/DataContext";
-import "../../src/globals.css";
 
 export default function Board() {
   const [categorizedData, setData] = useState(categorizeData(data));
@@ -52,13 +51,13 @@ export default function Board() {
 
   return (
     <DataContextProvider value={{ onStageChange, onSearch, onResetSearch }}>
-      <div className="board">
+      <div>
         <h2>Tasks Board</h2>
-        <SearchBox />
+        <SearchBox /> 
         {searchData.length !== 0 ? (
           <SearchResults searchedTasks={searchData} />
         ) : (
-          <ol className="columns-section">
+          <ol className="flex flex-row">
             {categorizedData.map((tasks, stage) => (
               <Column tasks={tasks} stage={stage} key={stage} />
             ))}
