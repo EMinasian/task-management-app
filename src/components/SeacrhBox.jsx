@@ -17,14 +17,25 @@ export default function SearchBox() {
 
   return (
     <form
+    className="py-3"
       onSubmit={(e) => handleSubmit(e)}
       onReset={(e) => {
         handleReset(e);
       }}
     >
-      <input ref={inputRef} placeholder="Search here..." />
-      <button type="submit">Search</button>
-      <button type="reset">Reset</button>
+      <input className="h-8 rounded p-2 border-2 border-orange-400" ref={inputRef} placeholder="Search here..." />
+      <button
+        type="submit"
+        className="bg-orange-400 text-base px-2 py-1 m-1 rounded font-semibold text-white"
+      >
+        Search
+      </button>
+      <button
+        type="reset"
+        className="bg-orange-400 text-base px-2 py-1 m-1 rounded font-semibold text-white"
+      >
+        Reset
+      </button>
     </form>
   );
 }

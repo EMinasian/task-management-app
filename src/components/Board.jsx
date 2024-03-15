@@ -51,8 +51,8 @@ export default function Board() {
 
   return (
     <DataContextProvider value={{ onStageChange, onSearch, onResetSearch }}>
-      <div>
-        <h2>Tasks Board</h2>
+      <div className="p-3 bg-lime-100">
+        <h2 className="text-lime-950 text-3xl font-bold my-2">Tasks Board</h2>
         <SearchBox /> 
         {searchData.length !== 0 ? (
           <SearchResults searchedTasks={searchData} />
