@@ -8,7 +8,8 @@ import { DataContextProvider } from "../contexts/DataContext";
 
 export default function Board() {
   const [categorizedData, setData] = useState(categorizeData(data));
-  const [searchData, setSearch] = useState([]);
+  const [searchData, setSearchData] = useState([]);
+  const [didSearch, setDidSearch] = useState(false)
 
   function onStageChange(stage, id, isUpgrade) {
     let taskToChange;
@@ -33,7 +34,7 @@ export default function Board() {
 
   function onSearch(value) {
     const tasksToShow = [];
-    const searchRegex = new RegExp(value);
+    const searchRegex = new RegExp(value, 'i');
 
     for (const stageTasks of categorizedData) {
       for (const task of stageTasks) {
@@ -42,11 +43,13 @@ export default function Board() {
         }
       }
     }
-    setSearch(tasksToShow);
+    setSearchData(tasksToShow);
+    setDidSearch(true)
   }
 
   function onResetSearch() {
-    setSearch([])
+    setSearchData([])
+    setDidSearch(false)
   }
 
   return (
@@ -54,7 +57,7 @@ export default function Board() {
       <div className="p-3 bg-lime-100">
         <h2 className="text-lime-950 text-3xl font-bold my-2">Tasks Board</h2>
         <SearchBox /> 
-        {searchData.length !== 0 ? (
+        {didSearch ? (
           <SearchResults searchedTasks={searchData} />
         ) : (
           <TaskDisplay data={categorizedData} />
