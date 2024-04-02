@@ -13,7 +13,7 @@ export default function Card({ task, isSearchResult }) {
       <div className="pt-3">
         {!isSearchResult && stage !== FIRST_STAGE && (
           <button
-            className="bg-yellow-400 p-1 m-0.5 rounded text-xs"
+            className="bg-yellow-400 p-1 m-0.5 rounded text-xs hover:bg-orange-400"
             onClick={() => onStageChange(stage, id, false)}
           >
             Downgrade
@@ -21,7 +21,7 @@ export default function Card({ task, isSearchResult }) {
         )}
         {!isSearchResult && stage !== LAST_STAGE && (
           <button
-            className="bg-yellow-400 p-1 m-0.5 rounded text-xs"
+            className="bg-yellow-400 p-1 m-0.5 rounded text-xs hover:bg-orange-400"
             onClick={() => onStageChange(stage, id, true)}
           >
             Upgrade

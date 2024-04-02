@@ -26,13 +26,13 @@ export default function SearchBox() {
       <input className="h-8 rounded p-2 border-2 border-orange-400" ref={inputRef} placeholder="Search here..." />
       <button
         type="submit"
-        className="bg-orange-400 text-base px-2 py-1 m-1 rounded font-semibold text-white"
+        className="bg-orange-400 text-base px-2 py-1 m-1 rounded font-semibold text-white hover:bg-lime-700"
       >
         Search
       </button>
       <button
         type="reset"
-        className="bg-orange-400 text-base px-2 py-1 m-1 rounded font-semibold text-white"
+        className="bg-orange-400 text-base px-2 py-1 m-1 rounded font-semibold text-white hover:bg-lime-700"
       >
         Reset
       </button>
